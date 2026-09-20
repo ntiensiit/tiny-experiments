@@ -14,12 +14,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
             "instance": INSTANCE,
             "port": PORT,
             "path": self.path,
+            "headers": dict(self.headers),
             "message": f"Hello from backend instance {INSTANCE} on port {PORT}"
         })
         self.wfile.write(resp.encode())
 
     def log_message(self, format, *args):
-        pass  # suppress logs
+        pass
 
 print(f"Backend '{INSTANCE}' listening on port {PORT}")
 http.server.HTTPServer(("127.0.0.1", PORT), Handler).serve_forever()

@@ -1,0 +1,7 @@
+# Private keys - NEVER commit
+certs/*.key
+certs/*.pem
+
+# Nginx temp/cache
+cache/
+/tmp/nginx_cache/
